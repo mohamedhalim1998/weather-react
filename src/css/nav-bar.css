@@ -1,0 +1,13 @@
+nav {
+  position: relative; 
+  margin: 2rem 2rem;
+}
+nav a {
+  justify-self: center;
+  align-self: flex-start;
+  margin-right: auto;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bolder;
+  color: var(--primary-color);
+}

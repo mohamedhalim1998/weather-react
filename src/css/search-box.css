@@ -1,0 +1,22 @@
+#search-box {
+   align-self: center;
+   justify-self: center;
+   position: absolute;       
+}
+
+textarea:focus, input:focus{
+   outline: none;
+}
+#search-box .form-input {
+   border-width: 1px;
+   flex-grow: 1;
+   border-style: solid;
+   border-color: #aaa;
+   border-radius: 10px;
+   padding: 10px 10px;
+
+}
+#search-box input {
+   border: none;
+   width: 300px;
+}
