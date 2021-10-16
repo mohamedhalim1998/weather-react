@@ -1,0 +1,50 @@
+#weather-card {
+  background: url("../img/cover.jpg") no-repeat center center;
+  background-size: cover;
+  height: 500px;
+  position: relative;
+  color: white;
+}
+
+#weather-card::before {
+  content: "";
+  background-color: white;
+  opacity: 0.2;
+  border-radius: 10px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+#weather-temperture {
+  justify-content: end;
+  align-items: flex-start;
+  height: 100%;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+}
+#weather-temperture i {
+   font-size: 32px;
+}
+#weather-temperture h2 {
+   font-size: 70px;
+   font-weight: 400;
+}
+#weather-temperture h3 {
+   font-size: 32px;
+   font-weight: 400;
+}
+#weather-time {
+  justify-content: end;
+  align-items: flex-end;
+  height: 100%;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+}
+
+#weather-time h3 {
+  font-size: 32px;
+  font-weight: 400;
+}

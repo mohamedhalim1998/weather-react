@@ -2,6 +2,12 @@
   --primary-color: #7282fa;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .container {
   width: 90%;
   margin: auto;
@@ -15,7 +21,11 @@
 .col {
   display: flex;
   flex-direction: column;
-  width: 100%;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .main-center {
@@ -27,6 +37,10 @@
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
+  border-radius: 20px;
+  border: 1px;
+  border-style: solid;
+  border-color: #ddd;
 }
 
 /* On mouse-over, add a deeper shadow */
