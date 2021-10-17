@@ -7,6 +7,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  max-width: 1366px;
+  margin: auto;
+}
 
 .container {
   width: 90%;
