@@ -1,0 +1,16 @@
+#property-card {
+  color: #444;
+}
+
+#property-card i {
+  font-size: 42px;
+  align-self: center;
+  color: var(--primary-color);
+}
+#property-card h3 {
+  font-size: 24px;
+}
+
+#property-card .name {
+  font-weight: 400;
+}
