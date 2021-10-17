@@ -3,7 +3,7 @@ import SearchBox from "./SearchBox";
 import "../css/nav-bar.css";
 function Navbar() {
   return (
-    <nav className="row main-center">
+    <nav className="row">
       <a className="navbar-brand" href="#">
         Weather
       </a>
