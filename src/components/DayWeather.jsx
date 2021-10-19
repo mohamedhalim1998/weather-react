@@ -1,12 +1,11 @@
 import React from "react";
-import "../css/day-weather.css"
+import "../css/day-weather.css";
 
-function DayWeather({day, icon, temp}) {
+function DayWeather({ day, icon, temp }) {
   return (
-    <div id="day-weather" 
-    className="col center around-space">
+    <div id="day-weather" className="col center around-space">
       <h4 className="day">{day}</h4>
-      <i className="fa fa-sun-o"></i>
+      <i className={`wi wi-${icon}`}></i>
       <h4>{temp}&#176;</h4>
     </div>
   );

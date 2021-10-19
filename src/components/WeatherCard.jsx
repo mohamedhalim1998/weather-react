@@ -15,7 +15,7 @@ function WeatherCard() {
     <div>
       <div id="weather-card" className="grid-2 container card">
         <div id="weather-temperture" className="col">
-          <i className="wi wi-day-sunny"></i>
+          <i className={`wi wi-${weatherData.weather[0].icon}`}></i>
           <h2 className="temp">
             {Math.floor(weatherData.weather[0].temp)} &#176;
           </h2>

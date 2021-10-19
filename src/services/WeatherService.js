@@ -20,6 +20,7 @@ function mapToDomain(data) {
       temp: day.temp.day,
       humidity: day.humidity,
       pressure: day.pressure,
+      icon: setIcon(day.weather[0].id),
     });
   });
   return {
@@ -28,6 +29,22 @@ function mapToDomain(data) {
     timezone: data.city.timezone,
     weather: weather,
   };
+}
+
+function setIcon(code) {
+  if (code >= 200 && code <= 232) {
+    return "thunderstorm";
+  } else if (code >= 300 && code <= 321) {
+    return "rain-mix";
+  } else if (code >= 500 && code <= 531) {
+    return "rain";
+  } else if (code >= 600 && code <= 622) {
+    return "snow";
+  } else if (code >= 801) {
+    return "cloudy";
+  } else {
+    return "day-sunny";
+  }
 }
 const WeatherService = {
   getWeather,

@@ -18,7 +18,7 @@ function WeatherDetails() {
           }
           return (
             <React.Fragment key={index}>
-              <DayWeather day={DateService.formatDay(day.sunrise)} temp={Math.floor(day.temp)}/>
+              <DayWeather day={DateService.formatDay(day.sunrise)} temp={Math.floor(day.temp)} icon={day.icon}/>
               {index < weatherData.weather.length - 1 && <div className="vl"></div>} 
             </React.Fragment>
           );
