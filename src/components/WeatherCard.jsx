@@ -6,9 +6,12 @@ import WeatherService from "../services/WeatherService";
 import DateService from "../services/DateService";
 function WeatherCard() {
   const { weatherData, dispatch } = useContext(WeatherContext);
-  useEffect(async () => {
-    const data = await WeatherService.getWeather();
-    dispatch({ type: weatherActions.getWeather, payload: data });
+  useEffect(() => {
+    async function fecth() {
+      const data = await WeatherService.getWeather();
+      dispatch({ type: weatherActions.getWeather, payload: data });
+    }
+    fecth();
   }, []);
   if (!weatherData.weather) return <div>Loading</div>;
   return (

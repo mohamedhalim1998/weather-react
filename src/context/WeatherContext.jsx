@@ -1,6 +1,4 @@
-import axios from "axios";
 import { createContext, useReducer } from "react";
-import WeatherService from "../services/WeatherService";
 
 export const WeatherContext = createContext();
 

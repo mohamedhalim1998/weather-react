@@ -4,7 +4,7 @@ import { WeatherContext } from "../context/WeatherContext";
 import DateService from "../services/DateService";
 
 function WeatherProperties() {
-  const { weatherData, dispatch } = useContext(WeatherContext);
+  const { weatherData } = useContext(WeatherContext);
   if (!weatherData.weather) return <div>Loading</div>;
   console.log(weatherData);
   return (

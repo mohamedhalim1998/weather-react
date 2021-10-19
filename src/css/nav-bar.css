@@ -1,7 +1,7 @@
 nav {
   margin: 2rem 2rem;
 }
-nav a {
+nav p {
   justify-self: center;
   align-self: flex-start;
   margin-right: auto;
