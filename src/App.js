@@ -6,8 +6,8 @@ import { WeatherProvider } from "./context/WeatherContext";
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <WeatherProvider>
+        <Navbar />
         <WeatherCard />
         <WeatherDetails />
       </WeatherProvider>

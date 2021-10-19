@@ -1,12 +1,11 @@
 import axios from "axios";
 
-const getWeather = async () => {
+const getWeather = async (city) => {
   const data = (
     await axios.get(
-      `http://api.openweathermap.org/data/2.5/forecast/daily?q=cairo&cnt=7&units=metric&appid=${process.env.REACT_APP_FORECAST_API_KEY}`
+      `http://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=7&units=metric&appid=${process.env.REACT_APP_FORECAST_API_KEY}`
     )
   ).data;
-
   return mapToDomain(data);
 };
 

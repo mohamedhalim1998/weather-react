@@ -5,15 +5,18 @@ import { weatherActions, WeatherContext } from "../context/WeatherContext";
 import WeatherService from "../services/WeatherService";
 import DateService from "../services/DateService";
 function WeatherCard() {
-  const { weatherData, dispatch } = useContext(WeatherContext);
+  const { data, dispatch } = useContext(WeatherContext);
+  console.log(data);
+  const { weather: weatherData, city } = data;
   useEffect(() => {
+    dispatch({ type: weatherActions.getWeather });
     async function fecth() {
-      const data = await WeatherService.getWeather();
+      const data = await WeatherService.getWeather(city);
       dispatch({ type: weatherActions.getWeather, payload: data });
     }
     fecth();
   }, []);
-  if (!weatherData.weather) return <div>Loading</div>;
+  if (!weatherData) return <div>Loading</div>;
   return (
     <div>
       <div id="weather-card" className="grid-2 container card">

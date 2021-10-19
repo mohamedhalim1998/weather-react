@@ -4,8 +4,9 @@ import { WeatherContext } from "../context/WeatherContext";
 import DateService from "../services/DateService";
 
 function WeatherProperties() {
-  const { weatherData } = useContext(WeatherContext);
-  if (!weatherData.weather) return <div>Loading</div>;
+  const { data } = useContext(WeatherContext);
+  const {weather: weatherData} = data;
+  if (!weatherData) return <div>Loading</div>;
   console.log(weatherData);
   return (
     <div className="card row center">
