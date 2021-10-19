@@ -30,6 +30,16 @@ function formatTime(time) {
   });
 }
 
+function formatDay(time) {
+    console.log(time);
+    const date = new Date(time * 1000);
+    console.log(date);
+  
+    return date.toLocaleString(undefined, {
+      weekday: "short"
+    });
+}
+
 function getUTCNow() {
   var now = new Date();
   var time = now.getTime();
@@ -42,6 +52,7 @@ const DateService = {
   getTime,
   getDate,
   formatTime,
+  formatDay
 };
 
 export default DateService;

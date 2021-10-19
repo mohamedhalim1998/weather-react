@@ -1,25 +1,28 @@
-import React from "react";
+import React , {useContext} from "react";
 import DayWeather from "./DayWeather";
 import WeatherProperties from "./WeatherProperties";
+import { WeatherContext } from "../context/WeatherContext";
+import DateService from "../services/DateService";
+import { Fragment } from "react/cjs/react.production.min";
 
 function WeatherDetails() {
+  const { weatherData, dispatch } = useContext(WeatherContext);
+  if (!weatherData.weather) return <div>Loading</div>;
   return (
     <div className="container grid-3 py-2 gap-2">
       <WeatherProperties />
       <div className="week-weather card row center even-space col-2-3">
-        <DayWeather />
-        <div className="vl"></div>
-        <DayWeather />
-        <div className="vl"></div>
-        <DayWeather />
-        <div className="vl"></div>
-        <DayWeather />
-        <div className="vl"></div>
-        <DayWeather />
-        <div className="vl"></div>
-        <DayWeather />
-        <div className="vl"></div>
-        <DayWeather />
+        {weatherData.weather.map((day, index) => {
+          if(index == 0){
+            return;
+          }
+          return (
+            <React.Fragment key={index}>
+              <DayWeather day={DateService.formatDay(day.sunrise)} temp={Math.floor(day.temp)}/>
+              {index < weatherData.weather.length - 1 && <div className="vl"></div>} 
+            </React.Fragment>
+          );
+        })}
       </div>
     </div>
   );
