@@ -42,6 +42,9 @@ body {
 .pr-4 {
   padding-right: 4rem;
 }
+.pr-2 {
+  padding-right: 2rem;
+}
 .row {
   display: flex;
   flex-direction: row;

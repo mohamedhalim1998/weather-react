@@ -1,9 +1,9 @@
-function getTime(timezone, time = getUTCNow()) {
+function getTime(timezone) {
   console.log(timezone);
-  const date = new Date(time + timezone * 1000);
+  const date = new Date(getUTCNow() + timezone * 1000);
   console.log(date);
   return date.toLocaleTimeString(undefined, {
-    hour: "2-digit",
+    hour: "numeric",
     minute: "2-digit",
   });
 }
@@ -19,6 +19,17 @@ function getDate(timezone) {
   });
 }
 
+function formatTime(time) {
+  console.log(time);
+  const date = new Date(time * 1000);
+  console.log(date);
+
+  return date.toLocaleTimeString(undefined, {
+    hour: "numeric",
+    minute: "2-digit",
+  });
+}
+
 function getUTCNow() {
   var now = new Date();
   var time = now.getTime();
@@ -30,6 +41,7 @@ function getUTCNow() {
 const DateService = {
   getTime,
   getDate,
+  formatTime,
 };
 
 export default DateService;
