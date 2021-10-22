@@ -26,15 +26,15 @@
   padding-bottom: 2rem;
 }
 #weather-temperture i {
-   font-size: 50px;
+  font-size: 50px;
 }
 #weather-temperture h2 {
-   font-size: 70px;
-   font-weight: 400;
+  font-size: 70px;
+  font-weight: 400;
 }
 #weather-temperture h3 {
-   font-size: 32px;
-   font-weight: 400;
+  font-size: 32px;
+  font-weight: 400;
 }
 #weather-time {
   justify-content: end;
@@ -47,4 +47,25 @@
 #weather-time h3 {
   font-size: 32px;
   font-weight: 400;
+}
+@media (max-width: 768px) {
+  #weather-temperture i {
+    font-size: 50px;
+  }
+  #weather-temperture h2 {
+    font-size: 48px;
+    font-weight: 400;
+  }
+  #weather-temperture h3 {
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  #weather-time h3 {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  #weather-card {
+    height: 40vh;
+  }
 }

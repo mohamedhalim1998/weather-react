@@ -1,14 +1,20 @@
 #day-weather {
-   height: 50%;
+  height: 50%;
 }
 #day-weather h4 {
-   font-size: 20px;
+  font-size: 20px;
 }
 
 #day-weather .day {
-   font-weight: 400;
+  font-weight: 400;
 }
 #day-weather i {
-   font-size: 28px;
-   color: var(--primary-color);
+  font-size: 28px;
+  color: var(--primary-color);
+}
+@media (max-width: 768px) {
+   #day-weather {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+   }
 }

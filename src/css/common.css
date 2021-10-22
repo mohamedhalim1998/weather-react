@@ -109,3 +109,22 @@ body {
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+
+@media (max-width: 768px) {
+  .row {
+    display: block;
+  }
+  /* .grid-2 {
+    display: block;
+  } */
+  .grid-3 {
+    display: block;
+  }
+  .vl {
+    height: 2px;
+    width: 70%;
+    background-color: #ddd;
+    text-align: center;
+    margin: auto;
+  }
+}

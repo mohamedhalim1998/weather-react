@@ -10,3 +10,11 @@ nav p {
   font-weight: bolder;
   color: var(--primary-color);
 }
+@media (max-width: 768px) {
+ .row {
+   display: block;
+ }
+ nav p {
+   display: block;
+ }
+}
