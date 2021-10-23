@@ -2,19 +2,13 @@ import React, { useEffect } from "react";
 import "../css/weather-card.css";
 import { useContext } from "react";
 import { weatherActions, WeatherContext } from "../context/WeatherContext";
-import WeatherService from "../services/WeatherService";
 import DateService from "../services/DateService";
 function WeatherCard() {
-  const { data, dispatch } = useContext(WeatherContext);
+  const { data, provider } = useContext(WeatherContext);
   console.log(data);
   const { weather: weatherData, city } = data;
   useEffect(() => {
-    dispatch({ type: weatherActions.getWeather });
-    async function fecth() {
-      const data = await WeatherService.getWeather(city);
-      dispatch({ type: weatherActions.getWeather, payload: data });
-    }
-    fecth();
+    provider.getWeather(city);
   }, []);
   if (!weatherData) return <div>Loading</div>;
   return (

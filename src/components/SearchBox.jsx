@@ -6,15 +6,13 @@ import WeatherService from "../services/WeatherService";
 
 function SearchBox() {
   const [city, setCity] = useState("");
-  const { data, dispatch } = useContext(WeatherContext);
+  const { data, provider } = useContext(WeatherContext);
   const changeCity = ({ target: input }) => {
     setCity(input.value);
   };
   const searchCity = async (e) => {
     e.preventDefault();
-    dispatch({ type: weatherActions.searchCity, payload: city });
-    const data = await WeatherService.getWeather(city);
-    dispatch({ type: weatherActions.getWeather, payload: data });
+    provider.searchCity(city);
   };
   return (
     <form id="search-box" onSubmit={searchCity}>
