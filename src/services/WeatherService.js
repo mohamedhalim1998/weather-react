@@ -1,18 +1,36 @@
 import axios from "axios";
 
 const getWeather = async (city) => {
+  const dailyWeather = await getDailyWeather(city);
+  const hourlyWeather = await getHourlyWeather(city);
+  return mapToDomain(dailyWeather, hourlyWeather);
+};
+
+async function getDailyWeather(city) {
   const data = (
     await axios.get(
       `http://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=7&units=metric&appid=${process.env.REACT_APP_FORECAST_API_KEY}`
     )
   ).data;
-  return mapToDomain(data);
-};
+  return data;
+}
 
-function mapToDomain(data) {
+async function getHourlyWeather(city) {
+  try {
+    const data = (
+      await axios.get(
+        `http://pro.openweathermap.org/data/2.5/forecast/hourly?q=${city}&cnt=24&units=metric&appid=${process.env.REACT_APP_FORECAST_API_KEY}`
+      )
+    ).data;
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function mapToDomain(dailyWeather, hourlyWeather) {
   const weather = [];
-  data.list.forEach((day) => {
-    console.log(day);
+  dailyWeather.list.forEach((day) => {
     weather.push({
       sunrise: day.sunrise,
       sunset: day.sunset,
@@ -22,11 +40,23 @@ function mapToDomain(data) {
       icon: setIcon(day.weather[0].id),
     });
   });
+  const hourly = [];
+  hourlyWeather.list.forEach((hour, index) => {
+    if (index % 3 == 0) {
+      console.log(hour);
+      hourly.push({
+        dt: hour.dt,
+        temp: hour.main.temp,
+      });
+    }
+  });
+
   return {
-    city: data.city.name,
-    country: data.city.country,
-    timezone: data.city.timezone,
+    city: dailyWeather.city.name,
+    country: dailyWeather.city.country,
+    timezone: dailyWeather.city.timezone,
     weather: weather,
+    hourlyWeather: hourly,
   };
 }
 
