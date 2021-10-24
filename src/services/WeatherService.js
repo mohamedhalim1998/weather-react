@@ -38,6 +38,9 @@ function mapToDomain(dailyWeather, hourlyWeather) {
       humidity: day.humidity,
       pressure: day.pressure,
       icon: setIcon(day.weather[0].id),
+      wind: day.speed,
+      clouds: day.clouds,
+
     });
   });
   const hourly = [];

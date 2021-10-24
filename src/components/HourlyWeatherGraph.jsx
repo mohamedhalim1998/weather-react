@@ -14,7 +14,7 @@ function HourlyWeatherGraph() {
   console.log(temps);
   const options = {
     chart: {
-      height: 350,
+      height: 200,
       type: "area",
     },
     dataLabels: {
@@ -24,15 +24,9 @@ function HourlyWeatherGraph() {
       curve: "smooth",
     },
     xaxis: {
-      type: "datetime",
       categories: weatherData.hourlyWeather
         .map((hour) => hour.temp)
         .map((time) => DateService.formatTime(time * 1000)),
-    },
-    tooltip: {
-      x: {
-        format: "dd/MM/yy HH:mm",
-      },
     },
   };
 
@@ -42,7 +36,7 @@ function HourlyWeatherGraph() {
         options={options}
         series={temps}
         type="area"
-        height={350}
+        height={200}
       />
     </div>
   );
